@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-02-14 19:47:50
+/* Smarty version 3.1.33, created on 2019-02-27 21:44:46
   from 'C:\xampp\htdocs\DWES_05_tienda\web\smarty\tarea\templates\productos.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5c65b7d6059428_67870737',
+  'unifunc' => 'content_5c76f6be49d119_04018119',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:listaproductos.tpl' => 1,
   ),
 ),false)) {
-function content_5c65b7d6059428_67870737 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5c76f6be49d119_04018119 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!-- Desarrollo Web en Entorno Servidor -->
 <!-- Tema 5 : Programación orientada a objetos en PHP -->

@@ -4,7 +4,23 @@ require_once('include/CestaCompra.php');
 require_once('libs/Smarty.class.php');
 require_once('cargarSmarty.php');
 
-
+ function filtrar_productos($productos,$ordenadores){
+     foreach ($productos as &$producto) {// recorro los productos
+    
+             foreach ($ordenadores as &$ordenador) { // recorro los ordenadores
+             //echo 'el producto es '.$producto->getcodigo().' : el ordenador es'.  $ordenador->getcodigo();
+               if ($producto->getcodigo() == $ordenador->getcodigo() ){ // si los codigos son iguales 
+                     $ordenador->setPVP($producto->getPVP());// defino el valor actualizado del PVP del ordenador
+                     $ordenador->setnombrecorto($producto->getnombrecorto()); // defino el valor actualizado del PVP del ordenador
+                     $ordenador->setdescripcion($producto->getdescripcion()); // defino el valor actualizado de description del ordenador
+                     $producto = $ordenador; // como un ordenador es un producto, lo paso a la lista de productos.
+                 }
+                }
+     
+     }    
+   return $productos;  // devuelvo la lista con productos y ordenadores.
+ 
+ }
 // Recuperamos la información de la sesión
 session_start();
 
@@ -40,8 +56,15 @@ if (isset($_POST['enviar'])) {
 
 // Ponemos a disposición de la plantilla los datos necesarios
 $smarty->assign('usuario', $_SESSION['usuario']);
-$smarty->assign('productos', DB::obtieneProductos());
+ // filtramos productos 
+$productos = filtrar_productos(DB::obtieneProductos(),DB::obtieneOrdenadores());
+$smarty->assign('productos',$productos );
 $smarty->assign('productoscesta', $cesta->get_productos());
+
+
+// si un producto es un ordenador lo consideramos ordenador
+
+
 
 // Mostramos la plantilla
 $smarty->display('productos.tpl');     
